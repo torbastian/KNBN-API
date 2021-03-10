@@ -5,17 +5,19 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
-public class Table
+namespace KNBN_API.Models
 {
-    [Key]
-    public int TableID { get; set; }
+    public class Table
+    {
+        [Key]
+        public int TableID { get; set; }
 
-    //Foreign Key -> User
-    public Board Board { get; set; }
-    [ForeignKey("Board")]
-    public int BoardID { get; set; }
+        //Foreign Key -> User
+        public Board Board { get; set; }
+        [ForeignKey("Board")]
+        public int BoardID { get; set; }
 
-    [Required]
-    public string Name { get; set; }
+        [Required]
+        public string Name { get; set; }
+    }
 }
