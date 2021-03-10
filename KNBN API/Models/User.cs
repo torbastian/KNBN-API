@@ -13,5 +13,8 @@ namespace KNBN_API.Models
 
         [Required]
         public string Password { get; set; }
+
+        //Relations
+        public ICollection<Board> Boards { get; set; }
     }
 }
