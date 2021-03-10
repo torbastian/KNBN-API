@@ -12,8 +12,8 @@ public class Table
     public int TableID { get; set; }
 
     //Foreign Key -> User
-    public Table Table { get; set; }
-    [ForeignKey("Table")]
+    public Board Board { get; set; }
+    [ForeignKey("Board")]
     public int BoardID { get; set; }
 
     [Required]
