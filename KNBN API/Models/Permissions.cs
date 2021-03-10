@@ -9,7 +9,7 @@ namespace KNBN_API.Models
     public class Permissions
     {
         [Key]
-        public int ID { get; set; }
+        public int PermissionsID { get; set; }
 
         [Required]
         public string Title { get; set; }
