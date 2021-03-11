@@ -24,4 +24,13 @@ namespace KNBN_API.Models
         [ForeignKey("Group")]
         public int GroupID { get; set; }
     }
+
+    [NotMapped]
+    public class Board_MembersDto
+    {
+        public int id { get; set; }
+        public int boardId { get; set; }
+        public int userId { get; set; }
+        public int groupId { get; set; }
+    }
 }
