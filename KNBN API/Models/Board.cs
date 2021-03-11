@@ -20,4 +20,12 @@ namespace KNBN_API.Models
         [Required]
         public string Name { get; set; }
     }
+
+    [NotMapped]
+    public class BoardDto
+    {
+        public int id { get; set; }
+        public int userId { get; set; }
+        public string name { get; set; }
+    }
 }
