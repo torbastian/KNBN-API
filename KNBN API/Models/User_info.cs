@@ -10,7 +10,7 @@ namespace KNBN_API.Models
     public class User_info
     {
         [Key]
-        public int Email { get; set; }
+        public string Email { get; set; }
 
         public User User { get; set; }
         [ForeignKey("User")]
@@ -22,7 +22,14 @@ namespace KNBN_API.Models
         [Required]
         public string Color { get; set; }
 
+    }
 
-
+    [NotMapped]
+    public class UserInfoDTO
+    {
+        public string email { get; set; }
+        public int userId { get; set; }
+        public string name { get; set; }
+        public string color { get; set; }
     }
 }

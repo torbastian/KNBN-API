@@ -29,4 +29,14 @@ namespace KNBN_API.Models
         public int BoardID { get; set; }
 
     }
+
+    [NotMapped]
+    public class Permission_MembersDTO
+    {
+        public int id { get; set; }
+        public int permissionId { get; set; }
+        public int userId { get; set; }
+        public int groupId { get; set; }
+        public int boardId { get; set; }
+    }
 }
