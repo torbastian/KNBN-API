@@ -20,4 +20,13 @@ namespace KNBN_API.Models
 
         public string Description { get; set; }
     }
+
+    [NotMapped]
+    public class CardDto
+    {
+        public int id { get; set; }
+        public int TableId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
 }
