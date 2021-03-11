@@ -22,7 +22,7 @@ namespace KNBN_API.Models
     [NotMapped]
     public class PermissionsDto
     {
-        public int permissionsId { get; set; }
+        public int id { get; set; }
         public string title { get; set; }
         public string description { get; set; }
     }
