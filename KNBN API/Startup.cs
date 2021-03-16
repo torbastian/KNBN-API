@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using KNBN_API.Models;
 
 namespace KNBN_API
 {
@@ -25,6 +27,8 @@ namespace KNBN_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionStrting = "";
+            services.AddDbContext<KanbanContext>(g => g.UseSqlServer(connectionStrting));
             services.AddControllers();
         }
 
