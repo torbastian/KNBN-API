@@ -9,14 +9,16 @@ namespace KNBN_API.Models
 {
     public class Permissions
     {
-        [Key]
-        public int PermissionsID { get; set; }
+        public int PermissionsId { get; set; }
 
         [Required]
         public string Title { get; set; }
 
         [Required]
         public string Description { get; set; }
+
+        //Foreign key to Permissions
+        public List<Permission_Members> Permission_Members { get; set; }
     }
 
     [NotMapped]

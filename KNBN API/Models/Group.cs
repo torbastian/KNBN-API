@@ -9,12 +9,17 @@ namespace KNBN_API.Models
 {
     public class Group
     {
-        [Key]
-        public int GroupID { get; set; }
+        public int GroupId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public string Color { get; set; }
+
+        //Foreign key to Group
+        public List<Board_Members> Board_Members { get; set; }
+        public List<Card_Members> Card_Members { get; set; }
+        public List<Group_Member> Group_Members { get; set; }
+        public List<Permission_Members> Permission_Members { get; set; }
     }
 
     [NotMapped]

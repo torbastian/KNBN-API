@@ -9,24 +9,7 @@ namespace KNBN_API.Models
 {
     public class Board_Members
     {
-        [Key]
-        public int BoardMembersID { get; set; }
-
-        public Board Board { get; set; }
-        [ForeignKey("Board")]
-        public int BoardID { get; set; }
-
-        public User User { get; set; }
-        [ForeignKey("User")]
-        public int UserID { get; set; }
-
-        public Group Group { get; set; }
-        [ForeignKey("Group")]
-        public int GroupID { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Group> Groups { get; set; }
-        public virtual ICollection<Board> Boards { get; set; }
+        public int Board_MembersId { get; set; }
     }
 
     [NotMapped]

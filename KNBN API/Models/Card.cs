@@ -9,18 +9,14 @@ namespace KNBN_API.Models
 {
     public class Card
     {
-        [Key]
-        public int CardID { get; set; }
-
-        public Table Table { get; set; }
-        [ForeignKey("Table")]
-        public int TableID { get; set; }
+        public int CardId { get; set; }
 
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public virtual ICollection<Table> Tables { get; set; }
+        //Foreign key to Card
+        public List<Card_Members> Card_Members { get; set; }
     }
 
     [NotMapped]

@@ -11,18 +11,12 @@ namespace KNBN_API.Models
     {
         [Key]
         public string Email { get; set; }
-
-        public User User { get; set; }
-        [ForeignKey("User")]
-        public int UserID { get; set; }
         
         [Required]
         public string Name { get; set; }
         
         [Required]
         public string Color { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
     }
 
     [NotMapped]

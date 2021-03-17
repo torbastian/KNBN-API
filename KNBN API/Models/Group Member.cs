@@ -9,17 +9,7 @@ namespace KNBN_API.Models
 {
     public class Group_Member
     {
-        [Key]
-        public int MemberID { get; set; }
-        public Group Group { get; set; }
-        [ForeignKey("Group")]
-        public int GroupID { get; set; }
-        public User User { get; set; }
-        [ForeignKey("User")]
-        public int UserID { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Group> Groups { get; set; }
+        public int Group_MemberId { get; set; }
     }
 
     [NotMapped]

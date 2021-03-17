@@ -13,6 +13,12 @@ namespace KNBN_API.Models
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             base.OnModelCreating(modelbuilder);
+
+            //modelbuilder.Entity(typeof(Board))
+            //    .HasMany(typeof(User), "User")
+            //    .WithOne()
+            //    .HasForeignKey("UserID")
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
 
         //DBSets
