@@ -19,6 +19,8 @@ namespace KNBN_API.Models
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        public virtual ICollection<Table> Tables { get; set; }
     }
 
     [NotMapped]

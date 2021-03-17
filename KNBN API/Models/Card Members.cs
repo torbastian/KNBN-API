@@ -23,6 +23,10 @@ namespace KNBN_API.Models
         public Group Group { get; set; }
         [ForeignKey("Group")]
         public int GroupID { get; set; }
+
+        public virtual ICollection<Card> Cards { get; set; }
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     }
 
     [NotMapped]

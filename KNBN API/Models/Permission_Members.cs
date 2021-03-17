@@ -20,13 +20,17 @@ namespace KNBN_API.Models
         [ForeignKey("User")]
         public int UserID { get; set; }
 
-        public Group Groups { get; set; }
+        public Group Group { get; set; }
         [ForeignKey("Group")]
         public int GroupID { get; set; }
 
         public Board Boards { get; set; }
         [ForeignKey("Board")]
         public int BoardID { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<Permissions> Many_Permissions { get; set; }
 
     }
 

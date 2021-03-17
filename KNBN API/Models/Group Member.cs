@@ -17,6 +17,9 @@ namespace KNBN_API.Models
         public User User { get; set; }
         [ForeignKey("User")]
         public int UserID { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     }
 
     [NotMapped]
