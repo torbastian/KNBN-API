@@ -10,7 +10,7 @@ namespace KNBN_API.Models
     public class Board_Members
     {
         [Key]
-        public int BoardMemberID { get; set; }
+        public int BoardMembersID { get; set; }
 
         public Board Board { get; set; }
         [ForeignKey("Board")]
