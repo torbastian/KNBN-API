@@ -27,7 +27,7 @@ namespace KNBN_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionStrting = "";
+            var connectionStrting = @"Server=SHARKGAMING\SQLEXPRESS;Database=KNBN;User Id=sa;Password=Password;";
             services.AddDbContext<KanbanContext>(g => g.UseSqlServer(connectionStrting));
             services.AddControllers();
         }

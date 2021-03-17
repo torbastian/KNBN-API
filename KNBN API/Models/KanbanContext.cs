@@ -10,6 +10,11 @@ namespace KNBN_API.Models
     {
         public KanbanContext(DbContextOptions<KanbanContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            base.OnModelCreating(modelbuilder);
+        }
+
         //DBSets
         public DbSet<User> Users { get; set; }
         public DbSet<User_info> User_info { get; set; }
