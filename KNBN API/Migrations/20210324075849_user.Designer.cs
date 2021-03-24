@@ -4,14 +4,16 @@ using KNBN_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KNBN_API.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    partial class KanbanContextModelSnapshot : ModelSnapshot
+    [Migration("20210324075849_user")]
+    partial class user
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,11 +105,16 @@ namespace KNBN_API.Migrations
                     b.Property<int?>("GroupId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Card_MembersId");
 
                     b.HasIndex("CardId");
 
                     b.HasIndex("GroupId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Card_Members");
                 });
@@ -255,6 +262,24 @@ namespace KNBN_API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("KNBN_API.Models.User_info", b =>
+                {
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Email");
+
+                    b.ToTable("User_info");
+                });
+
             modelBuilder.Entity("KNBN_API.Models.Board", b =>
                 {
                     b.HasOne("KNBN_API.Models.User", null)
@@ -293,6 +318,10 @@ namespace KNBN_API.Migrations
                     b.HasOne("KNBN_API.Models.Group", null)
                         .WithMany("Card_Members")
                         .HasForeignKey("GroupId");
+
+                    b.HasOne("KNBN_API.Models.User", null)
+                        .WithMany("Card_Members")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Group_Member", b =>
@@ -372,6 +401,8 @@ namespace KNBN_API.Migrations
                     b.Navigation("Board_Members");
 
                     b.Navigation("Boards");
+
+                    b.Navigation("Card_Members");
 
                     b.Navigation("Group_Members");
 

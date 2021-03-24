@@ -23,7 +23,7 @@ namespace KNBN_API.Models
 
         //DBSets
         public DbSet<User> Users { get; set; }
-        public DbSet<User_info> User_info { get; set; }
+        // public DbSet<User_info> User_info { get; set; }
         public DbSet<Permissions> Permissions { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Group_Member> Group_Members { get; set; }
