@@ -30,5 +30,6 @@ namespace KNBN_API.Models
         public int tableId { get; set; }
         public string title { get; set; }
         public string description { get; set; }
+        public int position { get; set; }
     }
 }

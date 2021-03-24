@@ -26,5 +26,6 @@ namespace KNBN_API.Models
         public int id { get; set; }
         public int boardId { get; set; }
         public string name { get; set; }
+        public int position { get; set; }
     }
 }
