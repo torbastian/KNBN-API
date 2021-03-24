@@ -14,6 +14,8 @@ namespace KNBN_API.Models
         [Required]
         public string Name { get; set; }
 
+        public int Position { get; set; }
+
         //Foreign key to Table
         public List<Card> Card { get; set; }
     }

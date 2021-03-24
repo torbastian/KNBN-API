@@ -10,6 +10,9 @@ namespace KNBN_API.Models
     public class Board_Members
     {
         public int Board_MembersId { get; set; }
+
+        //Foreign key to Board Members
+        public List<Card_Members> Card_Members { get; set; }
     }
 
     [NotMapped]
