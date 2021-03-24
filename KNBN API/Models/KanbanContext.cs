@@ -23,13 +23,14 @@ namespace KNBN_API.Models
 
         //DBSets
         public DbSet<User> Users { get; set; }
-        // public DbSet<User_info> User_info { get; set; }
         public DbSet<Permissions> Permissions { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Group_Member> Group_Members { get; set; }
         public DbSet<Board> Boards { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Card> Cards { get; set; }
+        public DbSet<Card_Labels> Card_Labels { get; set; }
+        public DbSet<Labels> Labels { get; set; }
         public DbSet<Board_Members> Board_Members { get; set; }
         public DbSet<Permission_Members> Permission_Members { get; set; }
     }

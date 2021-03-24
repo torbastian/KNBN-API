@@ -9,9 +9,9 @@ namespace KNBN_API.Models
     {
         public int LabelsId { get; set; }
 
-        public string Title;
+        public string Title { get; set; }
 
-        public string Color;
+        public string Color { get; set; }
 
         //Foreign key to Labels
         public List<Card_Labels> Card_Labels { get; set; }

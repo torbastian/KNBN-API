@@ -4,14 +4,16 @@ using KNBN_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KNBN_API.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    partial class KanbanContextModelSnapshot : ModelSnapshot
+    [Migration("20210324084252_update1")]
+    partial class update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,12 +187,6 @@ namespace KNBN_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LabelsId");
 
