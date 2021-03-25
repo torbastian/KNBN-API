@@ -17,7 +17,7 @@ namespace KNBN_API.Models
         //Foreign key to board
         public List<Board_Members> Board_Members { get; set; }
         public List<Table> Tables { get; set; }
-        public List<Group_Boards> Group_Boards { get; set; }
+        public IList<Group_Boards> Group_Boards { get; set; }
         public List<Permission_Members> Permission_Members { get; set; }
     }
 

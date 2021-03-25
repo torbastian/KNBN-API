@@ -8,7 +8,10 @@ namespace KNBN_API.Models
 {
     public class Group_Boards
     {
-        public int Group_BoardsId { get; set; }
+        public int GroupId { get; set; }
+        public Group Groups { get; set; }
+        public int BoardId { get; set; }
+        public Board Boards { get; set; }
     }
 
     [NotMapped]

@@ -18,6 +18,10 @@ namespace KNBN_API.Models
             modelbuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            // many to many
+
+            modelbuilder.Entity<Group_Boards>().HasKey(gb => new { gb.GroupId, gb.BoardId });
         }
 
         //DBSets
@@ -32,5 +36,9 @@ namespace KNBN_API.Models
         public DbSet<Labels> Labels { get; set; }
         public DbSet<Board_Members> Board_Members { get; set; }
         public DbSet<Permission_Members> Permission_Members { get; set; }
+
+
+        // DbSets many to many
+        public DbSet<Group_Boards> Group_Boards { get; set; }
     }
 }
