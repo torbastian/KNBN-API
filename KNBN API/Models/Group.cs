@@ -16,16 +16,15 @@ namespace KNBN_API.Models
         public string Color { get; set; }
 
         //Foreign key to Group
-        public List<Board_Members> Board_Members { get; set; }
         public List<Group_Member> Group_Members { get; set; }
-        public List<Permission_Members> Permission_Members { get; set; }
+        public LinkedList<Group_Boards> Group_Boards { get; set; }
     }
 
     [NotMapped]
     public class GroupDto
     {
         public int id { get; set; }
-        public int plantId { get; set; }
+        public int userId { get; set; }
         public string name { get; set; }
         public string color { get; set; }
     }

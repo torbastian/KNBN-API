@@ -46,7 +46,7 @@ namespace KNBN_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPermission_Members(int id, Permission_Members permission_Members)
         {
-            if (id != permission_Members.Permission_MemebersId)
+            if (id != permission_Members.Permission_MembersId)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace KNBN_API.Controllers
             _context.Permission_Members.Add(permission_Members);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPermission_Members", new { id = permission_Members.Permission_MemebersId }, permission_Members);
+            return CreatedAtAction("GetPermission_Members", new { id = permission_Members.Permission_MembersId }, permission_Members);
         }
 
         // DELETE: api/Permission_Members/5
@@ -101,7 +101,7 @@ namespace KNBN_API.Controllers
 
         private bool Permission_MembersExists(int id)
         {
-            return _context.Permission_Members.Any(e => e.Permission_MemebersId == id);
+            return _context.Permission_Members.Any(e => e.Permission_MembersId == id);
         }
     }
 }

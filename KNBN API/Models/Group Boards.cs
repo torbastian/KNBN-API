@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace KNBN_API.Models
 {
-    public class Card_Labels
+    public class Group_Boards
     {
-        public int Card_LabelsId { get; set; }
-
+        public int Group_BoardsId { get; set; }
     }
 
     [NotMapped]
-    public class Card_Labels_DTO
+    public class Group_Boards_DTO
     {
         public int id { get; set; }
-        public int cardId { get; set; }
-        public int labelId { get; set; }
+        public int groupId { get; set; }
+        public int boardId { get; set; }
     }
 }

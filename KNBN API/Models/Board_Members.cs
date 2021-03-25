@@ -13,6 +13,7 @@ namespace KNBN_API.Models
 
         //Foreign key to Board Members
         public List<Card_Members> Card_Members { get; set; }
+        public List<Permission_Members> Permission_Members { get; set; }
     }
 
     [NotMapped]
@@ -21,6 +22,5 @@ namespace KNBN_API.Models
         public int id { get; set; }
         public int boardId { get; set; }
         public int userId { get; set; }
-        public int groupId { get; set; }
     }
 }

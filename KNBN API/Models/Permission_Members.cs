@@ -9,8 +9,7 @@ namespace KNBN_API.Models
 {
     public class Permission_Members
     {
-        [Key]
-        public int Permission_MemebersId { get; set; }
+        public int Permission_MembersId { get; set; }
 
     }
 
@@ -19,8 +18,6 @@ namespace KNBN_API.Models
     {
         public int id { get; set; }
         public int permissionId { get; set; }
-        public int userId { get; set; }
-        public int groupId { get; set; }
-        public int boardId { get; set; }
+        public int boardMembersId { get; set; }
     }
 }

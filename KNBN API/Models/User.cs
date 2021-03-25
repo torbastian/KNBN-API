@@ -24,15 +24,12 @@ namespace KNBN_API.Models
         public string Color { get; set; }
 
 
-
+        //Foreign key to User
         public List<Board> Boards { get; set; }
-
-
         public List<Board_Members> Board_Members { get; set; }
-
         public List<Group_Member> Group_Members { get; set; }
+        public List<Group> Group { get; set; }
 
-        public List<Permission_Members> Permission_Members { get; set; }
     }
 
     [NotMapped]

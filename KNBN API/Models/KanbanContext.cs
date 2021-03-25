@@ -14,11 +14,10 @@ namespace KNBN_API.Models
         {
             base.OnModelCreating(modelbuilder);
 
-            //modelbuilder.Entity(typeof(Board))
-            //    .HasMany(typeof(User), "User")
-            //    .WithOne()
-            //    .HasForeignKey("UserID")
-            //    .OnDelete(DeleteBehavior.Restrict);
+            //Unique Email Required
+            modelbuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
         }
 
         //DBSets

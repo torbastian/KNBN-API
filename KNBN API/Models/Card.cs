@@ -19,7 +19,6 @@ namespace KNBN_API.Models
 
         //Foreign key to Card
         public List<Card_Members> Card_Members { get; set; }
-
         public List<Card_Labels> Card_Labels { get; set; }
     }
 

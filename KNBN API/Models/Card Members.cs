@@ -17,8 +17,7 @@ namespace KNBN_API.Models
     {
         public int id { get; set; }
         public int cardId { get; set; }
-        public int userId { get; set; }
-        public int groupId { get; set; }
+        public int boardMembersId { get; set; }
 
     }
 }
