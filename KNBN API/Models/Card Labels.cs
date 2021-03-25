@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KNBN_API.Models
 {
-    public class Card_Labels
+    public class Card_Labels4
     {
         public int Card_LabelsId { get; set; }
 

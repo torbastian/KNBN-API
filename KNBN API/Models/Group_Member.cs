@@ -9,7 +9,10 @@ namespace KNBN_API.Models
 {
     public class Group_Member
     {
-        public int Group_MemberId { get; set; }
+        public int GropId { get; set; }
+        public Group Group { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 
     [NotMapped]

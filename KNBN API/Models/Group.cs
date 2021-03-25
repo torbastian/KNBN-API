@@ -16,7 +16,7 @@ namespace KNBN_API.Models
         public string Color { get; set; }
 
         //Foreign key to Group
-        public List<Group_Member> Group_Members { get; set; }
+        public IList<Group_Member> Group_Members { get; set; }
         public IList<Group_Boards> Group_Boards { get; set; }
     }
 

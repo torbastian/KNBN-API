@@ -18,8 +18,8 @@ namespace KNBN_API.Models
         public int Position { get; set; }
 
         //Foreign key to Card
-        public List<Card_Members> Card_Members { get; set; }
-        public List<Card_Labels> Card_Labels { get; set; }
+       // public List<Card_Members> Card_Members { get; set; }
+        public IList<Card_labels> Card_Labels { get; set; }
     }
 
     [NotMapped]

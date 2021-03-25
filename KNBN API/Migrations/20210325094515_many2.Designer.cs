@@ -4,14 +4,16 @@ using KNBN_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KNBN_API.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    partial class KanbanContextModelSnapshot : ModelSnapshot
+    [Migration("20210325094515_many2")]
+    partial class many2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +90,28 @@ namespace KNBN_API.Migrations
                     b.ToTable("Cards");
                 });
 
+            modelBuilder.Entity("KNBN_API.Models.Card_Labels", b =>
+                {
+                    b.Property<int>("Card_LabelsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CardId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LabelsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Card_LabelsId");
+
+                    b.HasIndex("CardId");
+
+                    b.HasIndex("LabelsId");
+
+                    b.ToTable("Card_Labels");
+                });
+
             modelBuilder.Entity("KNBN_API.Models.Card_Members", b =>
                 {
                     b.Property<int>("Card_MembersId")
@@ -98,29 +122,16 @@ namespace KNBN_API.Migrations
                     b.Property<int?>("Board_MembersId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CardId")
+                        .HasColumnType("int");
+
                     b.HasKey("Card_MembersId");
 
                     b.HasIndex("Board_MembersId");
 
+                    b.HasIndex("CardId");
+
                     b.ToTable("Card_Members");
-                });
-
-            modelBuilder.Entity("KNBN_API.Models.Card_labels", b =>
-                {
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LabelId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LabelsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CardId", "LabelId");
-
-                    b.HasIndex("LabelsId");
-
-                    b.ToTable("Card_Labels");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Group", b =>
@@ -165,16 +176,18 @@ namespace KNBN_API.Migrations
 
             modelBuilder.Entity("KNBN_API.Models.Group_Member", b =>
                 {
-                    b.Property<int>("GropId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<int>("Group_MemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("GroupId")
                         .HasColumnType("int");
 
-                    b.HasKey("GropId", "UserId");
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Group_MemberId");
 
                     b.HasIndex("GroupId");
 
@@ -328,28 +341,26 @@ namespace KNBN_API.Migrations
                         .HasForeignKey("TableId");
                 });
 
+            modelBuilder.Entity("KNBN_API.Models.Card_Labels", b =>
+                {
+                    b.HasOne("KNBN_API.Models.Card", null)
+                        .WithMany("Card_Labels")
+                        .HasForeignKey("CardId");
+
+                    b.HasOne("KNBN_API.Models.Labels", null)
+                        .WithMany("Card_Labels")
+                        .HasForeignKey("LabelsId");
+                });
+
             modelBuilder.Entity("KNBN_API.Models.Card_Members", b =>
                 {
                     b.HasOne("KNBN_API.Models.Board_Members", null)
                         .WithMany("Card_Members")
                         .HasForeignKey("Board_MembersId");
-                });
 
-            modelBuilder.Entity("KNBN_API.Models.Card_labels", b =>
-                {
-                    b.HasOne("KNBN_API.Models.Card", "Card")
-                        .WithMany("Card_Labels")
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("KNBN_API.Models.Labels", "Labels")
-                        .WithMany("Card_Labels")
-                        .HasForeignKey("LabelsId");
-
-                    b.Navigation("Card");
-
-                    b.Navigation("Labels");
+                    b.HasOne("KNBN_API.Models.Card", null)
+                        .WithMany("Card_Members")
+                        .HasForeignKey("CardId");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Group", b =>
@@ -380,19 +391,13 @@ namespace KNBN_API.Migrations
 
             modelBuilder.Entity("KNBN_API.Models.Group_Member", b =>
                 {
-                    b.HasOne("KNBN_API.Models.Group", "Group")
+                    b.HasOne("KNBN_API.Models.Group", null)
                         .WithMany("Group_Members")
                         .HasForeignKey("GroupId");
 
-                    b.HasOne("KNBN_API.Models.User", "User")
+                    b.HasOne("KNBN_API.Models.User", null)
                         .WithMany("Group_Members")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Permission_Members", b =>
@@ -438,6 +443,8 @@ namespace KNBN_API.Migrations
             modelBuilder.Entity("KNBN_API.Models.Card", b =>
                 {
                     b.Navigation("Card_Labels");
+
+                    b.Navigation("Card_Members");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Group", b =>

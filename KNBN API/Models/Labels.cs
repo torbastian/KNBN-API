@@ -14,7 +14,7 @@ namespace KNBN_API.Models
         public string Color { get; set; }
 
         //Foreign key to Labels
-        public List<Card_Labels> Card_Labels { get; set; }
+        public IList<Card_labels> Card_Labels { get; set; }
     }
 
     public class Labels_DTO

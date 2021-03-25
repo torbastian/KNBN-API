@@ -4,14 +4,16 @@ using KNBN_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KNBN_API.Migrations
 {
     [DbContext(typeof(KanbanContext))]
-    partial class KanbanContextModelSnapshot : ModelSnapshot
+    [Migration("20210325095409_many3")]
+    partial class many3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,16 +167,18 @@ namespace KNBN_API.Migrations
 
             modelBuilder.Entity("KNBN_API.Models.Group_Member", b =>
                 {
-                    b.Property<int>("GropId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<int>("Group_MemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("GroupId")
                         .HasColumnType("int");
 
-                    b.HasKey("GropId", "UserId");
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Group_MemberId");
 
                     b.HasIndex("GroupId");
 
@@ -380,19 +384,13 @@ namespace KNBN_API.Migrations
 
             modelBuilder.Entity("KNBN_API.Models.Group_Member", b =>
                 {
-                    b.HasOne("KNBN_API.Models.Group", "Group")
+                    b.HasOne("KNBN_API.Models.Group", null)
                         .WithMany("Group_Members")
                         .HasForeignKey("GroupId");
 
-                    b.HasOne("KNBN_API.Models.User", "User")
+                    b.HasOne("KNBN_API.Models.User", null)
                         .WithMany("Group_Members")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("KNBN_API.Models.Permission_Members", b =>
